@@ -14,7 +14,7 @@ export const Header = () => {
         className="object-cover object-center"
         sizes="(max-width: 768px) 100vw, 50vw"
       />
-      <div className="absolute inset-0 flex items-center justify-start px-6 sm:px-10 md:px-[138px] text-white">
+      <div className="absolute inset-0 flex items-center justify-start px-6 sm:px-10 md:px-[138px]">
         <div className="max-w-lg mb-24 md:mb-40 mt-20 md:mt-0">
           <div className="mb-4 md:mb-44 mt-0 md:mt-[30px] relative w-[32px] h-[32px] md:w-[50px] md:h-[50px]">
             <Image
@@ -25,11 +25,11 @@ export const Header = () => {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-          <h1 className="font-sans text-2xl sm:text-4xl md:text-7xl font-medium text-left text-[#0B3B3C] leading-tight">
+          <h1 className="font-sans text-2xl sm:text-4xl md:text-7xl font-medium text-left text-primary leading-tight">
             <span className="block">Be good</span>
             <span className="block">to yourself</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl mt-4 text-left text-[#0B3B3C] leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl mt-4 text-left text-primary leading-relaxed">
             <span className="block md:inline">
               We’re working around the clock{" "}
             </span>
