@@ -24,13 +24,11 @@ export const Card = ({
 
   return (
     <div
-      className={`relative flex ${
+      className={`relative flex flex-col ${
         isReverseOrder ? "md:flex-row-reverse" : "md:flex-row"
-      } items-center justify-center gap-8 md:gap-[123px] mb-24`}
+      } items-center gap-8 md:gap-[123px] py-[40px] md:py-[90px] justify-center`}
     >
-      <div
-        className={`absolute font-sans text-[#F3F7F4] text-[120px] md:text-[450px] font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 select-none`}
-      >
+      <div className="absolute font-sans text-[#F3F7F4] text-[120px] md:text-[450px] font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 select-none">
         {number}
       </div>
 
@@ -42,25 +40,30 @@ export const Card = ({
           className="rounded-lg object-cover"
         />
       </div>
-
-      <div className="relative w-full md:w-1/2 text-left z-10 flex flex-col text-primary justify-center">
-        <h3 className="text-sm font-semibold tracking-[0.1em] uppercase mb-4">
-          {title}
-        </h3>
-        <h4 className="font-sans text-xl md:text-[28px] font-semibold mb-6 leading-tight">
-          {subtitle.map((line, index) => (
-            <span key={index} className="block">
-              {line}
-            </span>
-          ))}
-        </h4>
-        <p className="text-sm md:text-base leading-relaxed">
-          {description.map((line, index) => (
-            <span key={index} className="block">
-              {line}
-            </span>
-          ))}
-        </p>
+      <div
+        className={`relative w-full md:w-1/2 z-10 flex flex-col text-primary text-center md:text-left ${
+          isReverseOrder ? "md:items-end" : "md:justify-center"
+        }`}
+      >
+        <div>
+          <h3 className="text-sm font-semibold tracking-[0.1em] uppercase mb-4">
+            {title}
+          </h3>
+          <h4 className="font-sans text-xl md:text-[28px] font-semibold mb-6 leading-tight">
+            {subtitle.map((line, index) => (
+              <span key={index} className="block">
+                {line}
+              </span>
+            ))}
+          </h4>
+          <p className="text-sm md:text-base leading-relaxed">
+            {description.map((line, index) => (
+              <span key={index} className="block">
+                {line}
+              </span>
+            ))}
+          </p>
+        </div>
       </div>
     </div>
   );

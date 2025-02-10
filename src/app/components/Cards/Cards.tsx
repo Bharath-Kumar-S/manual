@@ -4,8 +4,8 @@ import erec from "@assets/erec-photo.png";
 
 export const Cards = () => {
   return (
-    <div className="w-full bg-white px-6 md:px-[160px] py-16 md:py-24">
-      <h2 className="font-sans text-[20px] md:text-[40px] font-normal leading-tight tracking-[-0.03em] text-center text-primary mb-16 md:mb-24">
+    <div className="w-full bg-white px-6 md:px-[160px] py-8 md:py-0">
+      <h2 className="font-sans text-[20px] md:text-[40px] font-normal leading-tight tracking-[-0.03em] text-center text-primary md:pt-[70px]">
         What we can help with
       </h2>
 
