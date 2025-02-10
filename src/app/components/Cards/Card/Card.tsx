@@ -27,12 +27,20 @@ export const Card = ({
       className={`relative flex flex-col ${
         isReverseOrder ? "md:flex-row-reverse" : "md:flex-row"
       } items-center gap-8 md:gap-[123px] py-[40px] md:py-[90px] justify-center`}
+      role="region"
+      aria-labelledby={`${title}-heading`}
     >
-      <div className="absolute font-sans text-[#F3F7F4] text-[120px] md:text-[450px] font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 select-none">
+      <div
+        className="absolute font-sans text-[#F3F7F4] text-[120px] md:text-[450px] font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 select-none"
+        aria-hidden="true"
+      >
         {number}
       </div>
 
-      <div className="relative w-[150px] md:w-[370px] aspect-[150/200] md:aspect-[370/445] z-10">
+      <div
+        className="relative w-[150px] md:w-[370px] aspect-[150/200] md:aspect-[370/445] z-10"
+        aria-hidden="true"
+      >
         <Image
           src={imageSrc}
           alt={altText}
@@ -40,15 +48,20 @@ export const Card = ({
           className="rounded-lg object-cover"
         />
       </div>
+
       <div
         className={`relative w-full md:w-1/2 z-10 flex flex-col text-primary text-center md:text-left ${
           isReverseOrder ? "md:items-end" : "md:justify-center"
         }`}
       >
         <div>
-          <h3 className="text-sm font-semibold tracking-[0.1em] uppercase mb-4">
+          <h3
+            id={`${title}-heading`}
+            className="text-sm font-semibold tracking-[0.1em] uppercase mb-4"
+          >
             {title}
           </h3>
+
           <h4 className="font-sans text-xl md:text-[28px] font-semibold mb-6 leading-tight">
             {subtitle.map((line, index) => (
               <span key={index} className="block">
@@ -56,6 +69,7 @@ export const Card = ({
               </span>
             ))}
           </h4>
+
           <p className="text-sm md:text-base leading-relaxed">
             {description.map((line, index) => (
               <span key={index} className="block">

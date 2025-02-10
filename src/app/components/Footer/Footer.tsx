@@ -1,8 +1,8 @@
 import Image from "next/image";
-import icon from "@assets/icon.png";
-import facebook from "@assets/facebook.png";
-import google from "@assets/google.png";
-import twitter from "@assets/twitter.png";
+import icon from "@/assets/icon.png";
+import facebook from "@/assets/facebook.png";
+import google from "@/assets/google.png";
+import twitter from "@/assets/twitter.png";
 
 const footerLinks = [
   {
@@ -33,13 +33,20 @@ const FooterLinkSection = ({
   links: string[];
 }) => (
   <div>
-    <h4 className="font-bold text-primary mb-6 uppercase text-xs tracking-widest">
+    <h4
+      className="font-bold text-primary mb-6 uppercase text-xs tracking-widest"
+      id={`${title}-title`}
+    >
       {title}
     </h4>
     <ul className="space-y-5 text-base font-normal leading-[30px] text-primary">
-      {links.map((link) => (
-        <li key={link}>
-          <a href="#" className="hover:text-primary/70 transition-colors">
+      {links.map((link, index) => (
+        <li key={index}>
+          <a
+            href="#"
+            className="hover:text-primary/70 transition-colors"
+            aria-label={`Link to ${link}`} // Descriptive link for screen readers
+          >
             {link}
           </a>
         </li>
@@ -50,7 +57,10 @@ const FooterLinkSection = ({
 
 const SocialIcons = () => (
   <div>
-    <h4 className="font-bold text-primary mb-6 uppercase text-xs tracking-widest">
+    <h4
+      className="font-bold text-primary mb-6 uppercase text-xs tracking-widest"
+      id="social-icons-title"
+    >
       Follow Us
     </h4>
     <div className="flex flex-wrap gap-3 md:gap-4">
@@ -59,11 +69,14 @@ const SocialIcons = () => (
           key={alt}
           href="#"
           className="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 hover:opacity-80 transition-opacity"
+          aria-label={`Follow us on ${alt}`} // Descriptive link for social icons
         >
           <Image
             src={src}
             alt={alt}
             className="w-4 h-4 md:w-5 md:h-5 object-contain"
+            width={24}
+            height={24}
           />
         </a>
       ))}
@@ -73,12 +86,17 @@ const SocialIcons = () => (
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#E8EFE9] pt-16">
+    <footer className="bg-[#E8EFE9] pt-16" role="contentinfo">
       <div className="container mx-auto px-6 sm:px-10 md:px-[160px]">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-8 md:mb-0">
             <div className="relative w-8 h-8 md:w-12 md:h-12">
-              <Image src={icon} alt="Logo" fill className="object-contain" />
+              <Image
+                src={icon}
+                alt="Company logo"
+                fill
+                className="object-contain"
+              />
             </div>
           </div>
 
@@ -91,7 +109,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t mt-12 md:mt-20 border-primary text-center">
-          <p className="text-base py-12 text-primary">
+          <p className="text-base py-12 text-primary" aria-label="Copyright">
             © 2021 Manual. All rights reserved
           </p>
         </div>

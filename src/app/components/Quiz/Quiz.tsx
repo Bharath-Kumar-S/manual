@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import Success from "@components/Results/Success";
-import Rejected from "@components/Results/Rejected";
+import Success from "@/components/Results/Success";
+import Rejected from "@/components/Results/Rejected";
 import { QuizData } from "@/src/types/quiz.types";
 
 interface QuizProps {
@@ -46,11 +46,19 @@ export const Quiz = ({ quizData }: QuizProps) => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-white text-black">
-      <h1 className="text-xl font-bold mb-6">
+    <div
+      className="flex flex-col items-center justify-center min-h-screen p-4 bg-white text-black"
+      role="main"
+      aria-labelledby="quiz-title"
+    >
+      <h1 id="quiz-title" className="text-xl font-bold mb-6">
         {quizData.questions[currentQuestion].question}
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+        role="group"
+        aria-labelledby={`question-${currentQuestion}`}
+      >
         {quizData.questions[currentQuestion].options.map((option, index) => (
           <button
             key={index}
@@ -61,6 +69,9 @@ export const Quiz = ({ quizData }: QuizProps) => {
             }`}
             onClick={() => handleAnswer(option.value)}
             dangerouslySetInnerHTML={{ __html: option.display }}
+            role="radio"
+            aria-checked={answers[currentQuestion] === option.value}
+            aria-label={option.display.replace(/<\/?[^>]+(>|$)/g, "")} // Strips HTML tags
           ></button>
         ))}
       </div>
@@ -68,6 +79,7 @@ export const Quiz = ({ quizData }: QuizProps) => {
         <button
           className="mt-4 px-4 py-2 bg-gray-600 text-white rounded"
           onClick={handleBack}
+          aria-label="Go back to the previous question"
         >
           Back
         </button>
