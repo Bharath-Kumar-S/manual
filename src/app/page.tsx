@@ -1,11 +1,11 @@
-import { Header } from "@/components/Hero";
+import { Hero } from "@/components/Hero";
 import { Cards } from "@/components/Cards";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <Header />
+      <Hero />
       <Cards />
       <Footer />
     </>

@@ -3,7 +3,7 @@ import bg from "@/assets/bgbanner.png";
 import icon from "@/assets/icon.png";
 import Link from "next/link";
 
-export const Header = () => {
+export const Hero = () => {
   return (
     <header
       className="relative w-full min-h-[500px] md:min-h-[750px]"
@@ -16,7 +16,7 @@ export const Header = () => {
         priority
         className="object-cover object-center"
         sizes="(max-width: 768px) 100vw, 50vw"
-        aria-hidden="true" // This background image is purely decorative
+        aria-hidden="true"
       />
       <div className="absolute inset-0 flex items-center justify-start px-6 sm:px-10 md:px-[138px]">
         <div className="max-w-lg mb-24 md:mb-40 mt-20 md:mt-0">
